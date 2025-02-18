@@ -13,15 +13,15 @@ def load_image(image_file):
 st.title("Bird Species Classification")
 
 image_file = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
-model = models.load_model('CNN_best_model.h5')
+model = models.load_model('mango.h5')
 
 if image_file is not None:
     st.image(load_image(image_file), width=250)
     image = Image.open(image_file)
-    image = image.resize((224, 224))
+    image = image.resize((100, 100))
     image_arr = np.array(image.convert('RGB'))
-    image_arr.shape = (1, 224, 224, 3)
+    image_arr.shape = (1, 100, 100, 3)
     result = model.predict(image_arr)
     ind = np.argmax(result)
-    classes = ['AMERICAN GOLDFINCH', 'BARN OWL', 'CARMINE BEE-EATER', 'DOWNY WOODPECKER', 'EMPEROR PENGUIN', 'FLAMINGO']
+    classes = ['Healthy', 'Rotten']
     st.header(classes[ind])

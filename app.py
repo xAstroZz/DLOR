@@ -21,8 +21,7 @@ if image_file is not None:
     
     result = model.predict(image_arr)
     ind = np.argmax(result)
-    confidence = result[0][ind] * 100
     
     classes = ['Healthy', 'Rotten']
     st.header(f"Prediction: {classes[ind]}")
-    st.subheader(f"Confidence Level: {int(confidence)} / 100")
+    st.header('Confidence: ' + str(round(np.max(result), 4) * 100) + ' %')

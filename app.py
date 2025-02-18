@@ -25,4 +25,4 @@ if image_file is not None:
     
     classes = ['Healthy', 'Rotten']
     st.header(f"Prediction: {classes[ind]}")
-    st.subheader(f"Confidence Level: {confidence:.2f}%")
+    st.subheader(f"Confidence Level: {int(confidence)} / 100")

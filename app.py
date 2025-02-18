@@ -10,7 +10,7 @@ def load_image(image_file):
     return img
 
 
-st.title("Bird Species Classification")
+st.title("Mango Classification")
 
 image_file = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
 model = models.load_model('mango.h5')
